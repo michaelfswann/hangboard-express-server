@@ -4,6 +4,7 @@
   "description": "server to handle requests containing user hangboard sessions data",
   "main": "server.js",
   "dependencies": {
+    "async": "^3.2.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.11.14",

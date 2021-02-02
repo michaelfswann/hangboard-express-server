@@ -1,5 +1,6 @@
 // External Modules
 const express = require("express");
+const bodyParser = require("body-parser");
 
 // App Variables
 const app = express();
@@ -16,12 +17,15 @@ const port = process.env.SERVER_PORT || "8000";
 // db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 //  App Configuration
-// /////NONE ADDED YET/////
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes Definitions
 app.get("/", (req, res) => {
   res.status(200).send("working");
 });
+
+const mongoRouter = require("./routes");
+app.use("/mongo", mongoRouter);
 
 // Server Activation
 app.listen(port, () => {

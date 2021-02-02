@@ -18,6 +18,17 @@ MongoClient.connect(URL, { useUnifiedTopology: true })
         });
     });
 
+    // respond to get requests at /mongo/ with all documents in collection ordered by date (asc)
+    router.get("/date", function (req, res) {
+      db.collection("hangboard_sessions_collection")
+        .find()
+        .sort({ date_of_session: 1 })
+        .toArray()
+        .then((results) => {
+          res.send(results);
+        });
+    });
+
     // respond to post requests at /mongo/
     router.post("/", function (req, res) {
       const data = req.body;

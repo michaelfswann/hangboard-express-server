@@ -17,6 +17,16 @@ MongoClient.connect(URL, { useUnifiedTopology: true })
           res.send(results);
         });
     });
+
+    // respond to post requests at /mongo/
+    router.post("/", function (req, res) {
+      const data = req.body;
+      db.collection("hangboard_sessions_collection")
+        .insertOne(data)
+        .then((results) => {
+          res.send(`New session logged id: ${results.insertedId}`);
+        });
+    });
   })
   .catch((error) => console.error(error));
 

@@ -1,6 +1,7 @@
 // External Modules
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 // App Variables
 const app = express();
@@ -18,6 +19,7 @@ const port = process.env.SERVER_PORT || "8000";
 
 //  App Configuration
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 // Routes Definitions
 app.get("/", (req, res) => {

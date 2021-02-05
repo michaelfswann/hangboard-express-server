@@ -29,6 +29,30 @@ MongoClient.connect(URL, { useUnifiedTopology: true })
         });
     });
 
+    // respond to get requests at /mongo/ with all documents in collection filtered by email
+    router.get("/email", function (req, res) {
+      const query = { user_email: req.query.email };
+      db.collection("hangboard_sessions_collection")
+        .find(query)
+        .toArray()
+        .then((results) => {
+          res.send(results);
+        });
+    });
+
+    // respond to get requests at /mongo/ with all documents in collection filtered for email ordered by date (asc)
+    router.get("/date/email", function (req, res) {
+      const query = { user_email: req.query.email };
+
+      db.collection("hangboard_sessions_collection")
+        .find(query)
+        .sort({ date_of_session: 1 })
+        .toArray()
+        .then((results) => {
+          res.send(results);
+        });
+    });
+
     // respond to post requests at /mongo/
     router.post("/", function (req, res) {
       const data = req.body;

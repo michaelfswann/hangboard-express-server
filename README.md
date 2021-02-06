@@ -8,7 +8,7 @@ Routes protected using JWT and Auth0.
 
 Data served is stored on MongoDB.
 
-Docker images available [here](https://hub.docker.com/repository/docker/michaelfswann/hangboard-server).
+Docker image available [here](https://hub.docker.com/repository/docker/michaelfswann/hangboard-server).
 
 ## Stack
 -Node.js

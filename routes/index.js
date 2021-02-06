@@ -14,7 +14,7 @@ MongoClient.connect(URL, { useUnifiedTopology: true })
         .find()
         .toArray()
         .then((results) => {
-          res.send(results);
+          res.json(results);
         });
     });
 
@@ -25,7 +25,7 @@ MongoClient.connect(URL, { useUnifiedTopology: true })
         .sort({ date_of_session: 1 })
         .toArray()
         .then((results) => {
-          res.send(results);
+          res.json(results);
         });
     });
 
@@ -36,7 +36,7 @@ MongoClient.connect(URL, { useUnifiedTopology: true })
         .find(query)
         .toArray()
         .then((results) => {
-          res.send(results);
+          res.json(results);
         });
     });
 
@@ -49,17 +49,18 @@ MongoClient.connect(URL, { useUnifiedTopology: true })
         .sort({ date_of_session: 1 })
         .toArray()
         .then((results) => {
-          res.send(results);
+          res.json(results);
         });
     });
 
     // respond to post requests at /mongo/
     router.post("/", function (req, res) {
       const data = req.body;
+      console.log("here", data);
       db.collection("hangboard_sessions_collection")
         .insertOne(data)
         .then((results) => {
-          res.send(`New session logged id: ${results.insertedId}`);
+          res.json(`New session logged id: ${results.insertedId}`);
         });
     });
   })

@@ -19,6 +19,7 @@ const port = process.env.SERVER_PORT || "8000";
 
 //  App Configuration
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(cors());
 
 // Routes Definitions

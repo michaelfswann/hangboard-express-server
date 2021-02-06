@@ -56,7 +56,6 @@ MongoClient.connect(URL, { useUnifiedTopology: true })
     // respond to post requests at /mongo/
     router.post("/", function (req, res) {
       const data = req.body;
-      console.log("here", data);
       db.collection("hangboard_sessions_collection")
         .insertOne(data)
         .then((results) => {

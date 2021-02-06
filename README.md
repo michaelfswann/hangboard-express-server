@@ -2,7 +2,7 @@
 
 # hangboard-express-server
 
-Server handles POST and GET requests from hangboard-timer [client](https://github.com/michaelfswann/hangboard-timer".
+Server handles POST and GET requests from hangboard-timer [client](https://github.com/michaelfswann/hangboard-timer").
 
 Routes protected using JWT and Auth0.
 

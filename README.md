@@ -11,9 +11,9 @@ Data served is stored on MongoDB.
 Docker image available [here](https://hub.docker.com/repository/docker/michaelfswann/hangboard-server).
 
 ## Stack
--Node.js
--Express.js
--MongoDB
+- Node.js
+- Express.js
+- MongoDB
 
 ## Data looks like this 
     {
